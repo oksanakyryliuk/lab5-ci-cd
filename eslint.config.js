@@ -11,6 +11,11 @@ export default defineConfig([
     tseslint.configs.recommended,
     pluginReact.configs.flat.recommended,
     {
+       settings: {
+            react: {
+                version: "detect", // автоматично визначає версію React
+            },
+        },
         rules: {
             "react/react-in-jsx-scope": "off", // Not needed with React 17+
             "no-unused-vars": "warn",
