@@ -1,16 +1,18 @@
 name: Deploy
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CI"]
     branches: [main]
+    types:
+      - completed
 
 jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     # Запускається тільки якщо всі перевірки пройшли успішно
-    needs: [build]
-    if: success()
+    if: ${{github.event.workwlof_run.conclusion=='success'}}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
