@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
+
     # Запускається тільки якщо всі перевірки пройшли успішно
     if: ${{ github.event.workwlof_run.conclusion=='success' }}
     steps:
